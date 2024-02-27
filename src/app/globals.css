@@ -12,3 +12,10 @@ body {
     text-wrap: balance;
   }
 }
+
+.bg-parent {
+  background: url('https://ranjeet.blr1.cdn.digitaloceanspaces.com/assets/bg.png');
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}

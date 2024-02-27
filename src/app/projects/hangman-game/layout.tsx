@@ -11,8 +11,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`bg-hero-pattern`}>{children}</body>
-    </html>
+    <div className="bg-parent">
+    <div className={``}>{children}</div>
+    </div>
   );
 }
