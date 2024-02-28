@@ -13,8 +13,6 @@ body {
 }
 
 :root {
-  /* background: url('https://ranjeet.blr1.cdn.digitaloceanspaces.com/assets/bg.png'); */
-  /* background: url("../../public/assets/images/background-mobile.svg"); */
   background: url("../../public/assets/images/background-mobile.svg");
   background-size: 100%;
   background-position: center;
