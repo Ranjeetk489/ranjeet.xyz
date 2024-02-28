@@ -4,6 +4,7 @@ import Image from "next/image";
 import Back from "../../../../../public/assets/images/icon-back.svg";
 import Button from "../../../../../components/Button";
 import BackButton from "@/components/projects/hangman/backButton";
+import { headers } from "next/headers";
 
 interface Name {
   name: string;
@@ -22,7 +23,9 @@ interface Data {
 }
 
 const Page = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/`);
+  const host = headers().get("host");
+  const protocal = process?.env.NODE_ENV==="development"?"http":"https"
+  let response = await fetch(`${protocal}://${host}/api`, { cache: "no-store" });
   const data: Data = await response.json();
 
   return (

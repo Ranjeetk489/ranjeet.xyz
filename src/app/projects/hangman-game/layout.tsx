@@ -12,7 +12,7 @@ export default function RootLayout({
 }>) {
   return (
     // <div className="bg-parent">
-    <div className={``}>{children}</div>
+    <div>{children}</div>
     // </div>
   );
 }
