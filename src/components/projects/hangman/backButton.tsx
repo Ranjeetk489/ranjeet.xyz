@@ -4,9 +4,11 @@ import Image from "next/image"
 import Back from "../../../../public/assets/images/icon-back.svg";
 import { useRouter } from "next/navigation";
 
-type Props = {}
+type Props = {
+    title: string,
+}
 
-function BackButton({ }: Props) {
+function BackButton(props: Props) {
     const router = useRouter()
     return (
         <div className="flex items-center justify-between lg:justify-normal" onClick={() => router.back()} >
@@ -21,8 +23,8 @@ function BackButton({ }: Props) {
             </div>
             <div className="w-full flex justify-end md:justify-center lg:justify-center text-center">
                 <div className="relative">
-                    <h1 className="text-shadow lg:text-hxl text-hm md:text-hl">Pick A Category</h1>
-                    <h1 className="absolute top-0 gradient-text lg:text-hxl text-hm md:text-hl">Pick A Category</h1>
+                    <h1 className="text-shadow lg:text-hxl text-hm md:text-hl">{props.title}</h1>
+                    <h1 className="absolute top-0 gradient-text lg:text-hxl text-hm md:text-hl">{props.title}</h1>
                 </div>
             </div>
         </div>

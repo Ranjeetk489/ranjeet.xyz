@@ -4,7 +4,6 @@ import Image from "next/image";
 import Back from "../../../../../public/assets/images/icon-back.svg";
 import Button from "../../../../../components/Button";
 import BackButton from "@/components/projects/hangman/backButton";
-import { headers } from "next/headers";
 
 interface Name {
   name: string;
@@ -23,16 +22,14 @@ interface Data {
 }
 
 const Page = async () => {
-  const host = headers().get("host");
-  const protocal = process?.env.NODE_ENV==="development"?"http":"https"
-  let response = await fetch(`${protocal}://${host}/api`, { cache: "no-store" });
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/`);
   const data: Data = await response.json();
 
   return (
     <div className="">
       <div className="bg-gradient-to-b from-[#1A043A] to-[#2B1677] fixed opacity-75 h-screen w-screen -z-50" />
       <div className="p-6 flex flex-col gap-6 container mx-auto">
-        <BackButton />
+        <BackButton title="Pick A Category" />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-[16px] md:gap-[32px] lg:gap-x-[32px] lg:gap-y-[50px] mt-14 md:mt-[100px] lg:mt-[150px]">
           {Object.entries(data.categories).map(([category]) => (
             <button
