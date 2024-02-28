@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "prettier --write src",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -30,7 +30,7 @@
     "typescript": "^5"
   },
   "lint-staged": {
-      "*.ts": "eslint",
+      "*.ts": "prettier --write src",
       "*.md": "prettier --list-different"
   }
 }

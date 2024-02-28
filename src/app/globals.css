@@ -39,23 +39,22 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(to bottom, #67B6FF 25%, #FFFFFF 100%);
+  background: linear-gradient(to bottom, #67b6ff 25%, #ffffff 100%);
   background-clip: text;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.pink-gradient{
-  background: linear-gradient(to bottom, #FE71FE 35%, #7199FF 100%);
+.pink-gradient {
+  background: linear-gradient(to bottom, #fe71fe 35%, #7199ff 100%);
 }
-
 
 .desc-card {
   display: grid;
   grid-template-columns: 30px calc(100% - 30px);
 }
 
-@media only screen  and (min-width:650px) {
+@media only screen and (min-width: 650px) {
   .desc-card {
     grid-template-columns: 100px calc(100% - 100px);
   }
