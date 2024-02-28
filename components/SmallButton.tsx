@@ -2,19 +2,19 @@ import React from "react";
 
 interface ButtonProps {
   onClick?: () => void;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const SmallButton: React.FC<ButtonProps> = ({ onClick, children }) => {
   const style = {
     background: "linear-gradient(to bottom, #FE71FE 0%, #7199FF 100%)",
     color: "white",
-    borderRadius: "100px",
     boxShadow: `inset 0px -6px 0px #9e2df54c `,
+    alignSelf: "center",
   };
 
   return (
-      <button className="uppercase flex items-center" style={style} onClick={onClick}>
+      <button className="uppercase rounded-full  self-center px-10 h-[94px] w-[94px]" style={style} onClick={onClick}>
         {children}
       </button>
   );

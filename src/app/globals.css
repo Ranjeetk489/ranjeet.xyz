@@ -12,16 +12,27 @@ body {
   }
 }
 
-html {
+:root {
   /* background: url('https://ranjeet.blr1.cdn.digitaloceanspaces.com/assets/bg.png'); */
   /* background: url("../../public/assets/images/background-mobile.svg"); */
-  background: url("../../public/assets/images/background-tablet.svg");
+  background: url("../../public/assets/images/background-mobile.svg");
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
 }
 
+@media only screen and (min-width: 600px) {
+  :root {
+    background: url("../../public/assets/images/background-tablet.svg");
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  :root {
+    background: url("../../public/assets/images/background-desktop.svg");
+  }
+}
 .text-shadow {
   color: #fff;
   font-weight: 700;
@@ -30,7 +41,8 @@ html {
 }
 
 .gradient-text {
-background: linear-gradient(to bottom, #67B6FF 25%, #FFFFFF 100%);
+  background: linear-gradient(to bottom, #67B6FF 25%, #FFFFFF 100%);
+  background-clip: text;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 }

@@ -35,6 +35,7 @@ const config: Config = {
         'blue-bs' : 'inset 0 -2px 0 3px #140E66',
         'blue-bs1' : 'inset 0 1px 0 6px #3C74FF',
         'pink-bs':  'inset 0 1px 0 6px #C642FB',
+        'pink-bs1': 'inset 0px -6px 0px #9e2df54c',
       }
 
     },
