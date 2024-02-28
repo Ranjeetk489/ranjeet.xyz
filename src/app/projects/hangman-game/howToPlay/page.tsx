@@ -1,12 +1,7 @@
-"use client";
 import React from "react";
-import Image from "next/image";
-import Back from "../../../../../public/assets/images/icon-back.svg";
-import { useRouter } from "next/navigation";
 import BackButton from "@/components/projects/hangman/backButton";
 
 const Page = () => {
-  const router = useRouter();
   return (
     <div className="">
       {/* <div className="bg-gradient-to-b from-[#1A043A] to-[#2B1677] fixed opacity-75 h-screen w-screen z-0" /> */}
