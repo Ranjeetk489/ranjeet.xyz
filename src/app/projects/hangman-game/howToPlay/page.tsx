@@ -10,7 +10,7 @@ const Page = () => {
   return (
     <div className="">
       {/* <div className="bg-gradient-to-b from-[#1A043A] to-[#2B1677] fixed opacity-75 h-screen w-screen z-0" /> */}
-      <div className="fixed -z-50 h-screen w-screen bg-gradient-to-b from-[#1A043A] to-[#2B1677] opacity-75" />
+      <div className=" -z-50 h-screen w-screen fixed bg-gradient-to-b from-[#1A043A] to-[#2B1677] opacity-75" />
       <div className="container mx-auto">
         <BackButton title={"How To Play"} />
         <div className="mt-[60px] grid grid-cols-1 items-stretch gap-x-8 space-y-8 lg:grid-cols-3 lg:space-y-0">
