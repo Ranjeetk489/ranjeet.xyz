@@ -21,7 +21,7 @@ function BackButton(props: Props) {
                     />
                 </div>
             </div>
-            <div className="w-full flex justify-end md:justify-center lg:justify-center text-center">
+            <div className="w-full flex justify-end md:justify-center text-center lg:justify-center">
                 <div className="relative">
                     <h1 className="text-shadow lg:text-hxl text-hm md:text-hl">{props.title}</h1>
                     <h1 className="absolute top-0 gradient-text lg:text-hxl text-hm md:text-hl">{props.title}</h1>
