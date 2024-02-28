@@ -50,3 +50,8 @@ body {
 .pink-gradient{
   background: linear-gradient(to bottom, #FE71FE 35%, #7199FF 100%);
 }
+
+.desc-card {
+  display: grid;
+  grid-template-columns: 100px calc(100% - 100px);
+}

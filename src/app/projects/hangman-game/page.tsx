@@ -1,6 +1,7 @@
 import { IMAGE_DOMAIN } from "@/utils/utils";
 import Image from "next/image";
 import Button from "../../../../components/Button";
+import Link from "next/link";
 
 const Page = () => {
   return (
@@ -32,6 +33,7 @@ const Page = () => {
             <h4 className="absolute top-0">game</h4>
           </div>
         </div>
+        <Link href="/projects/hangman-game/category">
         <div
           style={{
             background: "#243041",
@@ -54,7 +56,10 @@ const Page = () => {
             />
           </div>
         </div>
+        </Link>
+        <Link href="/projects/hangman-game/howToPlay">
         <Button color="blue">How to play</Button>
+        </Link>
       </div>
     </div>
   );
