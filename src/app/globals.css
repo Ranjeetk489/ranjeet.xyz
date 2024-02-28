@@ -2,9 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
-  background-color: url('https://ranjeet.blr1.cdn.digitaloceanspaces.com/assets/bg.png');
+  background-color: url("https://ranjeet.blr1.cdn.digitaloceanspaces.com/assets/bg.png");
 }
 
 @layer utilities {
@@ -13,9 +12,29 @@ body {
   }
 }
 
-.bg-parent {
-  background: url('https://ranjeet.blr1.cdn.digitaloceanspaces.com/assets/bg.png');
+html {
+  /* background: url('https://ranjeet.blr1.cdn.digitaloceanspaces.com/assets/bg.png'); */
+  /* background: url("../../public/assets/images/background-mobile.svg"); */
+  background: url("../../public/assets/images/background-tablet.svg");
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.text-shadow {
+  color: #fff;
+  font-weight: 700;
+  -webkit-text-stroke: 16px #243041;
+  text-shadow: 0 10px 1px black;
+}
+
+.gradient-text {
+background: linear-gradient(to bottom, #67B6FF 25%, #FFFFFF 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.pink-gradient{
+  background: linear-gradient(to bottom, #FE71FE 35%, #7199FF 100%);
 }
