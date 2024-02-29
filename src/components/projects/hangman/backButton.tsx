@@ -15,9 +15,11 @@ function BackButton(props: Props) {
       className="flex items-center justify-between lg:justify-normal"
       onClick={() => router.back()}
     >
-      <div className="relative h-[40px] w-[46px] rounded-full bg-gradient-to-b from-[#FE71FE] to-[#7199FF] shadow-pink-bs1 md:h-[64px] md:w-[70px] lg:h-[100px] lg:w-[106px]">
-        <div className="absolute left-1/2 top-1/2 h-5 w-5 -translate-x-1/2  -translate-y-1/2 transform md:h-[28px] md:w-[28px] lg:h-[38px] lg:w-[38px]">
-          <Image className="" src={Back} alt="back" />
+      <div className="relative rounded-full overflow-hidden">
+        <div className="relative hover-effect h-[40px] w-[46px] rounded-full pink-gradient shadow-pink-bs1 md:h-[64px] md:w-[70px] lg:h-[100px] lg:w-[106px] cursor-pointer">
+          <div className="absolute left-1/2 top-1/2 h-5 w-5 -translate-x-1/2  -translate-y-1/2 transform md:h-[28px] md:w-[28px] lg:h-[38px] lg:w-[38px]">
+            <Image className="" src={Back} alt="back" />
+          </div>
         </div>
       </div>
       <div className="flex w-full justify-end text-center md:justify-center lg:justify-center">

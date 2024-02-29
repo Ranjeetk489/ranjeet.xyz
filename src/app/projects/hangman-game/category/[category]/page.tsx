@@ -3,9 +3,8 @@ import { headers } from "next/headers";
 import { Data } from "../page";
 import Heart from "../../../../../../public/assets/images/icon-heart.svg";
 import Image from "next/image";
-import LettersButton from "@/components/projects/hangman/lettersButton";
-import KeyboardButton from "@/components/keyboardButton";
 import Menu from "@/components/projects/hangman/Menu";
+import Game from "@/components/projects/hangman/Game";
 
 export const generateMetadata = ({
   params,
@@ -18,7 +17,6 @@ export const generateMetadata = ({
 };
 
 const page = async ({ params }: { params: { category: string } }) => {
-  const keyBoard = "abcdefghi jklmnopqr stuvwxyz";
   const host = headers().get("host");
   const protocal = process?.env.NODE_ENV === "development" ? "http" : "https";
 
@@ -57,7 +55,7 @@ const page = async ({ params }: { params: { category: string } }) => {
       });
       return hiddenLetters.join("");
     })
-    .join(" ");
+    .join(" "); 
 
   const hiddenKeys = hiddenWord
     .split("")
@@ -67,21 +65,27 @@ const page = async ({ params }: { params: { category: string } }) => {
       }
     })
     .join("");
+    const handleClick = () => {}
+
 
   return (
     <>
       <div className="fixed -z-50 h-screen w-screen bg-gradient-to-b from-[#1A043A] to-[#2B1677] opacity-75" />
-      <div className="px-6 sm:px-8 py-11 sm:py-16">
+      <div className="px-6 md:px-8 lg:px-28 py-11 md:py-16">
         <header className="flex justify-between">
-          <div className="flex gap-4 justify-center items-center">
+          <div className="flex gap-4 sm:gap-8 md:gap-10 justify-center items-center">
             <Menu />
-            <h1 className="text-[40px] text-white">{params.category}</h1>
+            <h1 className="text-3xl md:text-5xl lg:text-[88px] text-white">{params.category}</h1>
           </div>
-          <div className="flex gap-4 justify-center items-center">
-            <Image src={Heart} alt="heart" height={24} width={26} />
+          <div className="flex gap-4 sm:gap-8 md:gap-10 justify-center items-center">
+            <div className="bg-white w-14 sm:w-40 md:w-60 h-4 sm:h-8 rounded-full p-1 sm:px-3 sm:py-2">
+              <div className="bg-dark-navy w-full h-full rounded-full"/>
+            </div>
+            <Image className="h-6 sm:h-12 w-[26px] sm:w-14" src={Heart} alt="heart" height={24} width={26} />
           </div>
         </header>
-        <div className="flex justify-center gap-x-14 flex-wrap gap-3 mt-20">
+        <Game hiddenStr={hiddenStr} hiddenWord={hiddenWord} hiddenKeys={hiddenKeys} /> 
+        {/* <main className="flex justify-center gap-x-14 flex-wrap gap-3 mt-20 sm:mt-24 md:mt-20">
           {hiddenWord.split(" ").map((e) => (
             <div className="flex flex-wrap justify-center gap-2" key={e}>
               {e.split("").map((l) => (
@@ -89,8 +93,8 @@ const page = async ({ params }: { params: { category: string } }) => {
               ))}
             </div>
           ))}
-        </div>
-        <div className="flex flex-col gap-6 mt-20">
+        </main>
+        <section className="flex flex-col gap-6 mt-20">
           {keyBoard.split(" ").map((e) => (
             <div className="flex justify-center gap-2" key={e}>
               {e.split("").map((l) => (
@@ -102,7 +106,7 @@ const page = async ({ params }: { params: { category: string } }) => {
               ))}
             </div>
           ))}
-        </div>
+        </section> */}
       </div>
     </>
   );

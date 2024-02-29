@@ -22,15 +22,22 @@ const Button: React.FC<ButtonProps> = ({ onClick, children, color }) => {
   return (
     <>
       <div
+        className="hover:"
         style={{
           background: "#140E66",
           borderRadius: "40px",
           padding: "0 2px 5px 2px",
         }}
       >
-        <button className="uppercase" style={style} onClick={onClick}>
-          {children}
-        </button>
+        <div className="relative overflow-auto rounded-[40px]">
+          <button
+            className="uppercase hover-effect"
+            style={style}
+            onClick={onClick}
+          >
+            {children}
+          </button>
+        </div>
       </div>
     </>
   );

@@ -30,7 +30,7 @@ const Page = async () => {
         <div className="mt-14 grid grid-cols-1 gap-y-[16px] md:mt-[100px] md:grid-cols-2 md:gap-[32px] lg:mt-[150px] lg:grid-cols-3 lg:gap-x-[32px] lg:gap-y-[50px]">
           {Object.entries(data.categories).map(([category]) => (
             <Link
-            href={`/projects/hangman-game/category/${category}`}
+              href={`/projects/hangman-game/category/${category}`}
               style={{
                 background: "#140E66",
                 borderRadius: "20px",
@@ -39,11 +39,15 @@ const Page = async () => {
               color="blue"
               key={category}
             >
-              <div
-                className="flex   justify-center rounded-[20px] bg-[#2463FF] py-[24px] text-white  md:py-[60px] lg:py-[60px]"
-                style={{ boxShadow: `inset 0px 6px 0px #3C74FF` }}
-              >
-                <div className="tracking-wider text-hm uppercase">{category}</div>
+              <div className="relative overflow-hidden rounded-[20px]">
+                <div
+                  className="flex hover-effect justify-center rounded-[20px] bg-[#2463FF] py-[24px] text-white  md:py-[60px] lg:py-[60px]"
+                  style={{ boxShadow: `inset 0px 6px 0px #3C74FF` }}
+                >
+                  <div className="tracking-wider text-hm uppercase">
+                    {category}
+                  </div>
+                </div>
               </div>
             </Link>
           ))}
