@@ -32,7 +32,7 @@
             {"name": "Raiders of the Lost Ark", "selected": false},
             {"name": "La La Land", "selected": false}
         ],
-        "TV Shows": [
+        "TV_Shows": [
             {"name": "Breaking Bad", "selected": false},
             {"name": "South Park", "selected": false},
             {"name": "Game of Thrones", "selected": false},
@@ -78,7 +78,7 @@
             {"name": "Kenya", "selected": false},
             {"name": "Luxembourg", "selected": false},
             {"name": "Mexico", "selected": false},
-            {"name": "Netherlands", "selected": false},
+            {"name": "Netherlands", "selected": false}, 
             {"name": "Oman", "selected": false},
             {"name": "Peru", "selected": false},
             {"name": "Qatar", "selected": false},
@@ -96,7 +96,7 @@
             {"name": "Belgium", "selected": false},
             {"name": "Chile", "selected": false}
         ],
-        "Capital Cities": [
+        "Capital_Cities": [
             {"name": "Tokyo", "selected": false},
             {"name": "Paris", "selected": false},
             {"name": "London", "selected": false},
