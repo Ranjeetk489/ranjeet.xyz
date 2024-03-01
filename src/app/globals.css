@@ -64,6 +64,9 @@ body {
 .hover-effect:hover::before {
   opacity: 0.25;
 }
+.hover-effect:focus::before {
+  opacity: 0.25;
+}
 
 .desc-card {
   display: grid;

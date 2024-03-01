@@ -9,25 +9,18 @@ import { GameState } from "./Game";
 interface MenuProps {
   text?: string;
   gameStatusText?: string;
-  setGameState: React.Dispatch<React.SetStateAction<GameState>>;
   showCard: boolean;
+  setGameState: React.Dispatch<React.SetStateAction<GameState>>;
   setShowCard: React.Dispatch<React.SetStateAction<boolean>>;
   playAgain: () => void;
 }
-
-// enum GameState {
-//   Playing = "Playing",
-//   Won = "You Win",
-//   Lost = "You Lose",
-//   Paused = "Paused",
-// }
 
 const Menu: React.FC<MenuProps> = (props) => {
   const updateGameState = () => {
     debugger;
     if (
       [GameState.Won, GameState.Lost].includes(
-        props.gameStatusText as GameState,
+        props.gameStatusText as GameState
       )
     ) {
       props.playAgain();
@@ -35,6 +28,7 @@ const Menu: React.FC<MenuProps> = (props) => {
     props.setGameState(GameState.Paused);
     props.setShowCard(false);
   };
+
   return (
     <>
       <div
@@ -78,7 +72,7 @@ const Menu: React.FC<MenuProps> = (props) => {
                   </h4>
                 </div>
               </div>
-              <Button onClick={updateGameState} color="blue">
+              <Button onClick={updateGameState} color="blue" autoFocus={true}>
                 {props.gameStatusText !== GameState.Paused
                   ? "Play Again"
                   : "Continue"}

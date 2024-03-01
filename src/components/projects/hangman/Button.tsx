@@ -4,9 +4,10 @@ interface ButtonProps {
   onClick?: () => void;
   children: React.ReactNode;
   color: string;
+  autoFocus?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({ onClick, children, color }) => {
+const Button: React.FC<ButtonProps> = ({ onClick, children, color, autoFocus }) => {
   const style = {
     background:
       color === "blue"
@@ -22,17 +23,17 @@ const Button: React.FC<ButtonProps> = ({ onClick, children, color }) => {
   return (
     <>
       <div
-        className="hover:"
         style={{
           background: "#140E66",
           borderRadius: "40px",
           padding: "0 2px 5px 2px",
         }}
-      >
+        >
         <div className="relative overflow-auto rounded-[40px]">
           <button
             className="uppercase hover-effect"
             style={style}
+            autoFocus={autoFocus}
             onClick={onClick}
           >
             {children}
