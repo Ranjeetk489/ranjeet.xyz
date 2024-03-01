@@ -5,42 +5,42 @@ import KeyboardButton from "./keyboardButton";
 
 interface GameProps {
   hiddenWord: string;
-  hiddenKeys: string;
+  hiddenKeysStr: string;
   word: string;
 }
 
-const Game: React.FC<GameProps> = ({ word, hiddenWord, hiddenKeys }) => {
-  const hiddenIndexStr = hiddenWord
+const Game: React.FC<GameProps> = ({ word, hiddenWord, hiddenKeysStr }) => {
+  
+  let hiddenIndexes: number[] = []
+    hiddenWord
     .split("")
-    .map((e, i) => {
-      if (e === "_") return i;
-      else return "";
+    .forEach((e, i) => {
+      if (e === "_") hiddenIndexes.push(i);
     })
-    .join("");
-  const correctWord = word.split(" ").join("").split("");
+  
+  const correctWord = word.split("");
   const keyBoard = "abcdefghi jklmnopqr stuvwxyz";
+  const [count, setCount] = useState(0)
+  const [hiddenKeys, setHiddenKeys] = useState(hiddenKeysStr)
   const [hiddenLetters, setHiddenLetters] = useState(hiddenWord.split(""));
-  const [hiddenIndexes, setHiddenIndexes] = useState(hiddenIndexStr.split(""));
-  const [selectedBox, setSelectedBox] = useState(Number(hiddenIndexes[0]));
+  const [selectedBox, setSelectedBox] = useState(Number(hiddenIndexes[count]));
   const [clickedKey, setClickedKey] = useState("");
-  console.log(selectedBox);
 
   useEffect(() => {
-    if (correctWord[selectedBox]?.toLowerCase() === clickedKey) {
+    if (clickedKey && correctWord[selectedBox]?.toLowerCase() === clickedKey) {
       setHiddenLetters((prevHiddenLetters) => {
         const updatedHiddenLetters = [...prevHiddenLetters];
         updatedHiddenLetters[selectedBox] = correctWord[selectedBox];
         return updatedHiddenLetters;
       });
+      const num = hiddenIndexes.filter((e) => e !== selectedBox && correctWord[e] === clickedKey)
+      num.length > 0 ? setHiddenKeys(hiddenKeys) : setHiddenKeys(hiddenKeys + clickedKey)
+      setSelectedBox(Number(hiddenIndexes[count + 1]));
+      setCount(count + 1)
+      setClickedKey('')
     }
-    // console.log(hiddenLetters);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [clickedKey]);
-  // console.log(hiddenWord);
-  // console.log(hiddenIndexStr);
-  // console.log(correctWord[selectedBox].toLowerCase() === clickedKey);
-  // console.log(hiddenLetters);
-  // console.log(clickedKey);
 
   return (
     <div>
@@ -49,11 +49,8 @@ const Game: React.FC<GameProps> = ({ word, hiddenWord, hiddenKeys }) => {
           .join("")
           .split(" ")
           .map((e, i) => {
-            const wordIndexOffset = hiddenLetters
-              .join("")
-              .split(" ")
-              .slice(0, i)
-              .join("").length;
+            const wordIndexOffset =
+              hiddenLetters.join("").split(" ").slice(0, i).join("").length + i;
 
             return (
               <div className="flex flex-wrap justify-center gap-2" key={e}>

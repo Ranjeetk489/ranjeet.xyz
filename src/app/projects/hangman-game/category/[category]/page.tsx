@@ -65,8 +65,6 @@ const page = async ({ params }: { params: { category: string } }) => {
       }
     })
     .join("");
-    const handleClick = () => {}
-
 
   return (
     <>
@@ -84,29 +82,7 @@ const page = async ({ params }: { params: { category: string } }) => {
             <Image className="h-6 sm:h-12 w-[26px] sm:w-14" src={Heart} alt="heart" height={24} width={26} />
           </div>
         </header>
-        <Game word={word} hiddenWord={hiddenWord} hiddenKeys={hiddenKeys} /> 
-        {/* <main className="flex justify-center gap-x-14 flex-wrap gap-3 mt-20 sm:mt-24 md:mt-20">
-          {hiddenWord.split(" ").map((e) => (
-            <div className="flex flex-wrap justify-center gap-2" key={e}>
-              {e.split("").map((l) => (
-                <LettersButton key={l} letter={l} />
-              ))}
-            </div>
-          ))}
-        </main>
-        <section className="flex flex-col gap-6 mt-20">
-          {keyBoard.split(" ").map((e) => (
-            <div className="flex justify-center gap-2" key={e}>
-              {e.split("").map((l) => (
-                <KeyboardButton
-                  key={l}
-                  letter={l}
-                  disabled={hiddenKeys.split("").includes(l)}
-                />
-              ))}
-            </div>
-          ))}
-        </section> */}
+        <Game word={word} hiddenWord={hiddenWord} hiddenKeysStr={hiddenKeys} /> 
       </div>
     </>
   );
