@@ -1,9 +1,10 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 import MenuIcon from "../../../../public/assets/images/icon-menu.svg";
 import Button from "./Button";
 import Link from "next/link";
+import { GameState } from "./Game";
 
 interface MenuProps {
   text?: string;
@@ -14,12 +15,12 @@ interface MenuProps {
   playAgain: () => void;
 }
 
-enum GameState {
-  Playing = "Playing",
-  Won = "You Win",
-  Lost = "You Lose",
-  Paused = "Paused",
-}
+// enum GameState {
+//   Playing = "Playing",
+//   Won = "You Win",
+//   Lost = "You Lose",
+//   Paused = "Paused",
+// }
 
 const Menu: React.FC<MenuProps> = (props) => {
   const updateGameState = () => {

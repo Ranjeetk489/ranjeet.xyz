@@ -32,7 +32,6 @@ const Page = async ({ params }: { params: { category: string } }) => {
       <div className="fixed -z-50 h-screen w-screen bg-gradient-to-b from-[#1A043A] to-[#2B1677] opacity-75" />
       <div className="px-6 md:px-8 lg:px-28 py-11 md:py-16">
         <Game
-          data={data}
           category={params.category}
           selectedCategory={data.categories[params.category]}
         />

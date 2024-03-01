@@ -8,11 +8,10 @@ import Menu from "./Menu";
 
 interface GameProps {
   category: string;
-  data: Data;
   selectedCategory: Name[];
 }
 
-enum GameState {
+export enum GameState {
   Playing = "Playing",
   Won = "You Win",
   Lost = "You Lose",
@@ -24,16 +23,9 @@ interface Name {
   selected: boolean;
 }
 
-export interface Data {
-  categories: {
-    [key: string]: Name[];
-  };
-}
-
-const Game: React.FC<GameProps> = ({ data, category, selectedCategory }) => {
+const Game: React.FC<GameProps> = ({ category, selectedCategory }) => {
   let hiddenStr = "";
   const getHiddenWord = (word: string): string => {
-    hiddenStr = "";
     const new_word = word
       .split(" ")
       .map((e) => {
@@ -68,21 +60,22 @@ const Game: React.FC<GameProps> = ({ data, category, selectedCategory }) => {
   const [word, setWord] = useState(shuffleArray(selectedCategory)[0].name);
   // const [hiddenWord, setHiddenWord] = useState(getHiddenWord(word))
   const [hiddenKeys, setHiddenKeys] = useState(
-    getHiddenKeys(getHiddenWord(word)),
+    getHiddenKeys(getHiddenWord(word))
   );
   const [hiddenIndexes, setHiddenIndexes] = useState(
-    CalculateHiddenIndexs(getHiddenWord(word)),
+    CalculateHiddenIndexs(getHiddenWord(word))
   );
   const correctWord = word.split("");
   const keyBoard = "abcdefghi jklmnopqr stuvwxyz";
   const [hiddenLetters, setHiddenLetters] = useState(
-    getHiddenWord(word).split(""),
+    getHiddenWord(word).split("")
   );
   const [selectedBox, setSelectedBox] = useState(
-    Number(CalculateHiddenIndexs(getHiddenWord(word))[0]),
+    Number(CalculateHiddenIndexs(getHiddenWord(word))[0])
   );
   const [clickedKey, setClickedKey] = useState("");
   const [health, setHealth] = useState(8);
+  const [isRed, setIsRed] = useState(false);
   const [gameState, setGameState] = useState<GameState>(GameState.Playing);
   const gameStatusText = getGameStatusText(gameState);
   const [showCard, setShowCard] = useState(false);
@@ -94,6 +87,7 @@ const Game: React.FC<GameProps> = ({ data, category, selectedCategory }) => {
     });
     return hiddenIndexes;
   }
+  console.log(hiddenKeys)
 
   useLayoutEffect(() => {
     playGame();
@@ -150,9 +144,12 @@ const Game: React.FC<GameProps> = ({ data, category, selectedCategory }) => {
         return updatedHiddenLetters;
       });
       const updatedHiddenIndexes = hiddenIndexes.filter(
-        (e) => e !== selectedBox,
+        (e) => e !== selectedBox
       );
+      const num = hiddenIndexes.filter((e) => e !== selectedBox && correctWord[e] === clickedKey)
+      num.length > 0 ? setHiddenKeys(hiddenKeys) : setHiddenKeys(hiddenKeys + clickedKey)
       setHiddenIndexes(updatedHiddenIndexes);
+      setClickedKey("");
       if (updatedHiddenIndexes.length) {
         updateSelectedBoxPosition(selectedBox, hiddenIndexes);
       } else {
@@ -163,20 +160,23 @@ const Game: React.FC<GameProps> = ({ data, category, selectedCategory }) => {
       clickedKey &&
       correctWord[selectedBox]?.toLowerCase() !== clickedKey
     ) {
-      // wrongAns(health)
       if (health === 1) {
         setGameState(GameState.Lost);
         setShowCard(true);
       }
       setHealth(health - 1);
       setClickedKey("");
+      setIsRed(true);
+        setTimeout(() => {
+          setIsRed(false);
+        }, 1000);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [clickedKey]);
 
   const updateSelectedBoxPosition = (
     currPos: number,
-    posArr: Array<number>,
+    posArr: Array<number>
   ): void => {
     let posInArr = posArr.indexOf(currPos);
     if (posInArr < posArr.length - 1) {
@@ -211,11 +211,20 @@ const Game: React.FC<GameProps> = ({ data, category, selectedCategory }) => {
         <div className="flex gap-4 sm:gap-8 md:gap-10 justify-center items-center">
           <div className="bg-white w-14 sm:w-40 md:w-60 h-4 sm:h-8 rounded-full p-1 sm:px-3 sm:py-2">
             <div
-              style={{ width: `${(100 * health) / 8}%` }}
+              style={{
+                width: `${(100 * health) / 8}%`,
+                backgroundColor: isRed ? "red" : "",
+                transition: "background-color 1s ease",
+                opacity: isRed ? '1': `${1 * 2 * health/8}`,
+              }}
               className={`bg-dark-navy h-full rounded-full`}
             />
           </div>
           <Image
+          style={{
+            scale: isRed ? '.9' : '1',
+            transition: "scale 1s ease",
+          }}
             className="h-6 sm:h-12 w-[26px] sm:w-14"
             src={Heart}
             alt="heart"
