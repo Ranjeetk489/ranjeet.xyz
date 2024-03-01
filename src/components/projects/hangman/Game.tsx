@@ -7,9 +7,10 @@ interface GameProps {
   hiddenWord: string;
   hiddenKeysStr: string;
   word: string;
+  health: number;
 }
 
-const Game: React.FC<GameProps> = ({ word, hiddenWord, hiddenKeysStr }) => {
+const Game: React.FC<GameProps> = ({ word, hiddenWord, hiddenKeysStr, health }) => {
   
   let hiddenIndexes: number[] = []
     hiddenWord
@@ -26,6 +27,11 @@ const Game: React.FC<GameProps> = ({ word, hiddenWord, hiddenKeysStr }) => {
   const [selectedBox, setSelectedBox] = useState(Number(hiddenIndexes[count]));
   const [clickedKey, setClickedKey] = useState("");
 
+  // function wrongAns(health: number) {
+  //   console.log(health, 'd')
+  //   health = health - 1
+  // }
+
   useEffect(() => {
     if (clickedKey && correctWord[selectedBox]?.toLowerCase() === clickedKey) {
       setHiddenLetters((prevHiddenLetters) => {
@@ -37,6 +43,8 @@ const Game: React.FC<GameProps> = ({ word, hiddenWord, hiddenKeysStr }) => {
       num.length > 0 ? setHiddenKeys(hiddenKeys) : setHiddenKeys(hiddenKeys + clickedKey)
       setSelectedBox(Number(hiddenIndexes[count + 1]));
       setCount(count + 1)
+    } else if(clickedKey && correctWord[selectedBox]?.toLowerCase() !== clickedKey) {
+      // wrongAns(health)
       setClickedKey('')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

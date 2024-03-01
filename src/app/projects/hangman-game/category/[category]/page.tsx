@@ -17,6 +17,8 @@ export const generateMetadata = ({
 };
 
 const page = async ({ params }: { params: { category: string } }) => {
+  let health = 6 //should be 8 by default
+  console.log(health)
   const host = headers().get("host");
   const protocal = process?.env.NODE_ENV === "development" ? "http" : "https";
 
@@ -77,12 +79,12 @@ const page = async ({ params }: { params: { category: string } }) => {
           </div>
           <div className="flex gap-4 sm:gap-8 md:gap-10 justify-center items-center">
             <div className="bg-white w-14 sm:w-40 md:w-60 h-4 sm:h-8 rounded-full p-1 sm:px-3 sm:py-2">
-              <div className="bg-dark-navy w-full h-full rounded-full"/>
+              <div style={{width: `${100 * health/8}%`}} className={`bg-dark-navy h-full rounded-full`}/>
             </div>
             <Image className="h-6 sm:h-12 w-[26px] sm:w-14" src={Heart} alt="heart" height={24} width={26} />
           </div>
         </header>
-        <Game word={word} hiddenWord={hiddenWord} hiddenKeysStr={hiddenKeys} /> 
+        <Game word={word} hiddenWord={hiddenWord} hiddenKeysStr={hiddenKeys} health={health} /> 
       </div>
     </>
   );
