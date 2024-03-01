@@ -1,26 +1,30 @@
 "use client";
-import { Herr_Von_Muellerhoff } from "next/font/google";
 import React, { useState } from "react";
 
 interface KeyboardButtonProps {
   letter: string;
-  onClick?: () => void;
+  setClickedKey: React.Dispatch<React.SetStateAction<string>>
   disabled?: boolean;
 }
 
 const KeyboardButton: React.FC<KeyboardButtonProps> = ({
-  onClick,
+  setClickedKey,
   letter,
   disabled,
 }) => {
   const style = {
     opacity: disabled ? ".25" : "1",
   };
+
+  const handleClick = (e: React.MouseEvent) => {
+    setClickedKey(e.currentTarget.innerHTML)
+  }
+
   return (
     <div
-      className={`text-dark-navy bg-white cursor-pointer flex justify-center items-center rounded-lg sm:rounded-3xl uppercase text-2xl sm:text-5xl w-7 sm:w-16 md:w-28 h-14 sm:h-[84px] ${disabled ? 'cursor-not-allowed' : `hover:bg-blue hover:text-white`} `}
+      className={`text-dark-navy bg-white ${disabled ? 'cursor-not-allowed' :'cursor-pointer'} flex justify-center items-center rounded-lg sm:rounded-3xl uppercase text-2xl sm:text-5xl w-7 sm:w-16 md:w-28 h-14 sm:h-[84px] ${disabled ? '' : `hover:bg-blue hover:text-white`} `}
       style={style}
-      onClick={onClick}
+      onClick={handleClick}
     >
       {letter}
     </div>

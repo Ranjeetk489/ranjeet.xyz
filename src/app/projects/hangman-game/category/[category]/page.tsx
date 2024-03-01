@@ -84,7 +84,7 @@ const page = async ({ params }: { params: { category: string } }) => {
             <Image className="h-6 sm:h-12 w-[26px] sm:w-14" src={Heart} alt="heart" height={24} width={26} />
           </div>
         </header>
-        <Game hiddenStr={hiddenStr} hiddenWord={hiddenWord} hiddenKeys={hiddenKeys} /> 
+        <Game word={word} hiddenWord={hiddenWord} hiddenKeys={hiddenKeys} /> 
         {/* <main className="flex justify-center gap-x-14 flex-wrap gap-3 mt-20 sm:mt-24 md:mt-20">
           {hiddenWord.split(" ").map((e) => (
             <div className="flex flex-wrap justify-center gap-2" key={e}>
