@@ -10,7 +10,8 @@ const nextConfig = {
             },
             // Add more remote patterns if needed
         ]
-    }
+    },
+    
 };
 
 export default nextConfig;

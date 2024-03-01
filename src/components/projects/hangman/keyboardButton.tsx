@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 interface KeyboardButtonProps {
   letter: string;
-  setClickedKey: React.Dispatch<React.SetStateAction<string>>
+  setClickedKey: React.Dispatch<React.SetStateAction<string>>;
   disabled?: boolean;
 }
 
@@ -17,12 +17,12 @@ const KeyboardButton: React.FC<KeyboardButtonProps> = ({
   };
 
   const handleClick = (e: React.MouseEvent) => {
-    setClickedKey(e.currentTarget.innerHTML)
-  }
+    setClickedKey(e.currentTarget.innerHTML);
+  };
 
   return (
     <div
-      className={`text-dark-navy bg-white ${disabled ? 'cursor-not-allowed' :'cursor-pointer'} flex justify-center items-center rounded-lg sm:rounded-3xl uppercase text-2xl sm:text-5xl w-7 sm:w-16 md:w-28 h-14 sm:h-[84px] ${disabled ? '' : `hover:bg-blue hover:text-white`} `}
+      className={`text-dark-navy bg-white ${disabled ? "cursor-not-allowed" : "cursor-pointer"} flex justify-center items-center rounded-lg sm:rounded-3xl uppercase text-2xl sm:text-5xl w-7 sm:w-16 md:w-28 h-14 sm:h-[84px] ${disabled ? "" : `hover:bg-blue hover:text-white`} `}
       style={style}
       onClick={handleClick}
     >

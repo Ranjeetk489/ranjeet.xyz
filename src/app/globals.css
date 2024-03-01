@@ -49,7 +49,7 @@ body {
   background: linear-gradient(to bottom, #fe71fe 25%, #7199ff 100%);
 }
 
-.hover-effect::before{
+.hover-effect::before {
   content: "";
   position: absolute;
   top: 0;
@@ -61,8 +61,8 @@ body {
   transition: opacity 0.5s;
 }
 
-.hover-effect:hover::before{
-  opacity: .25;
+.hover-effect:hover::before {
+  opacity: 0.25;
 }
 
 .desc-card {

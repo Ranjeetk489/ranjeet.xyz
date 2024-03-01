@@ -3,19 +3,42 @@ import Image from "next/image";
 import React, { useState } from "react";
 import MenuIcon from "../../../../public/assets/images/icon-menu.svg";
 import Button from "./Button";
+import Link from "next/link";
 
 interface MenuProps {
   text?: string;
+  gameStatusText?: string;
+  setGameState: React.Dispatch<React.SetStateAction<GameState>>;
+  showCard: boolean;
+  setShowCard: React.Dispatch<React.SetStateAction<boolean>>;
+  playAgain: () => void;
 }
 
-const Menu: React.FC<MenuProps> = ({ text = "paused" }) => {
-  const [showCard, setShowCard] = useState(false);
+enum GameState {
+  Playing = "Playing",
+  Won = "You Win",
+  Lost = "You Lose",
+  Paused = "Paused",
+}
 
+const Menu: React.FC<MenuProps> = (props) => {
+  const updateGameState = () => {
+    debugger;
+    if (
+      [GameState.Won, GameState.Lost].includes(
+        props.gameStatusText as GameState,
+      )
+    ) {
+      props.playAgain();
+    }
+    props.setGameState(GameState.Paused);
+    props.setShowCard(false);
+  };
   return (
     <>
       <div
         className="relative overflow-hidden rounded-full"
-        onClick={() => setShowCard(true)}
+        onClick={() => props.setShowCard(true)}
       >
         <div className="pink-gradient rounded-full w-10 md:w-16 lg:w-24 h-10 md:h-16 lg:h-24 flex justify-center items-center cursor-pointer hover-effect">
           <Image
@@ -27,7 +50,7 @@ const Menu: React.FC<MenuProps> = ({ text = "paused" }) => {
           />
         </div>
       </div>
-      {showCard && (
+      {props.showCard && (
         <>
           <div className="fixed z-40 top-0 left-0 h-screen w-screen bg-gradient-to-b from-[#1A043A] to-[#2B1677] opacity-75" />
           <div
@@ -46,15 +69,25 @@ const Menu: React.FC<MenuProps> = ({ text = "paused" }) => {
             >
               <div className="absolute -top-14 md:-top-[84px]">
                 <div className="relative capitalize">
-                  <h4 className="text-shadow text-8xl md:text-9xl">{text}</h4>
+                  <h4 className="text-shadow text-8xl md:text-9xl">
+                    {props.gameStatusText}
+                  </h4>
                   <h4 className="absolute top-0 gradient-text text-8xl md:text-9xl">
-                    {text}
+                    {props.gameStatusText}
                   </h4>
                 </div>
               </div>
-              <Button onClick={() => text === 'paused' ? setShowCard(false) : ''} color="blue">{text !== 'paused' ? 'Play Again' : 'Continue'}</Button>
-              <Button color="blue">New Category</Button>
-              <Button color="pink">Quit Game</Button>
+              <Button onClick={updateGameState} color="blue">
+                {props.gameStatusText !== GameState.Paused
+                  ? "Play Again"
+                  : "Continue"}
+              </Button>
+              <Link href={"/projects/hangman-game/category"}>
+                <Button color="blue">New Category</Button>
+              </Link>
+              <Link href={"/projects/hangman-game"}>
+                <Button color="pink">Quit Game</Button>
+              </Link>
             </div>
           </div>
         </>

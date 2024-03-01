@@ -45,7 +45,7 @@ const Page = async () => {
                   style={{ boxShadow: `inset 0px 6px 0px #3C74FF` }}
                 >
                   <div className="tracking-wider text-hm uppercase">
-                    {category}
+                    {category.split("_").join(" ")}
                   </div>
                 </div>
               </div>
