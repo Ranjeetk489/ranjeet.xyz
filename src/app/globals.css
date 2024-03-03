@@ -26,14 +26,13 @@ body {
   }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 768px) {
   :root {
     background: url("../../public/assets/images/background-desktop.svg");
   }
 }
 .text-shadow {
   color: #fff;
-  /* font-weight: 700; */
   -webkit-text-stroke: 16px #243041;
   text-shadow: 0 6px 1px black;
 }

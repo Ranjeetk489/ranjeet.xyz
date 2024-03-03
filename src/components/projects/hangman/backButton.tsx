@@ -17,8 +17,8 @@ function BackButton(props: Props) {
     >
       <div className="relative rounded-full overflow-hidden">
         <div className="relative hover-effect h-[40px] w-[46px] rounded-full pink-gradient shadow-pink-bs1 md:h-[64px] md:w-[70px] lg:h-[100px] lg:w-[106px] cursor-pointer">
-          <div className="absolute left-1/2 top-1/2 h-5 w-5 -translate-x-1/2  -translate-y-1/2 transform md:h-[28px] md:w-[28px] lg:h-[38px] lg:w-[38px]">
-            <Image className="" src={Back} alt="back" />
+          <div className="absolute left-1/2 top-1/2 h-5 w-5 -translate-x-1/2 pr-1 -translate-y-1/2 transform md:h-[28px] md:w-[28px] lg:h-[38px] lg:w-[38px]">
+            <Image src={Back} alt="back" />
           </div>
         </div>
       </div>
