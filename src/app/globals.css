@@ -22,8 +22,7 @@ body {
 @media only screen and (min-width: 600px) {
   :root {
     background: url("../../public/assets/images/background-tablet.svg");
-  background-repeat: no-repeat;
-
+    background-repeat: no-repeat;
   }
 }
 

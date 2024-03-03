@@ -23,7 +23,7 @@ function BackButton(props: Props) {
         </div>
       </div>
       <div className="flex w-full justify-end text-center md:justify-center lg:justify-center">
-        <div className="relative">
+        <div className="relative flex justify-center items-center">
           <h1 className="text-shadow text-hm md:text-hl lg:text-hxl">
             {props.title}
           </h1>
