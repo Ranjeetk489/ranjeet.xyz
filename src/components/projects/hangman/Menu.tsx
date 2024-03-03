@@ -63,7 +63,7 @@ const Menu: React.FC<MenuProps> = (props) => {
               }}
             >
               <div className="absolute -top-14 md:-top-[84px]">
-                <div className="relative capitalize">
+                <div className="relative capitalize flex justify-center items-center">
                   <h4 className="text-shadow text-8xl md:text-9xl">
                     {props.gameStatusText}
                   </h4>
