@@ -1,10 +1,6 @@
 import { Metadata } from "next";
 import { headers } from "next/headers";
 import { Data } from "../page";
-import Heart from "../../../../../../public/assets/images/icon-heart.svg";
-import Image from "next/image";
-import Menu from "@/components/projects/hangman/Menu";
-// import Game from "@/components/projects/hangman/Game";
 import dynamic from "next/dynamic";
 
 export const generateMetadata = ({

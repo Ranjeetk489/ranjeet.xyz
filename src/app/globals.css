@@ -16,13 +16,14 @@ body {
   background: url("../../public/assets/images/background-mobile.svg");
   background-size: 100%;
   background-position: center;
-  background-repeat: no-repeat;
   height: 100vh;
 }
 
 @media only screen and (min-width: 600px) {
   :root {
     background: url("../../public/assets/images/background-tablet.svg");
+  background-repeat: no-repeat;
+
   }
 }
 
