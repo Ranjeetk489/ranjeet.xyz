@@ -2,6 +2,7 @@ import { IMAGE_DOMAIN } from "@/utils/utils";
 import Image from "next/image";
 import Button from "../../../components/projects/hangman/Button";
 import Link from "next/link";
+import "./style.css";
 
 const Page = () => {
   return (
