@@ -13,7 +13,6 @@ interface MainProps {
 const Main: React.FC<MainProps> = ({ productRequests }) => {
   const [isOpen, setIsOpen] = useState(false);
   const CategoryNames = ["All", "UI", "UX", "Enhancement", "Bug", "Feature"];
-  console.log(isOpen);
 
   return (
     <div>
