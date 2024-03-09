@@ -60,18 +60,18 @@ const Game: React.FC<GameProps> = ({ category, selectedCategory }) => {
   const [word, setWord] = useState(shuffleArray(selectedCategory)[0].name);
   // const [hiddenWord, setHiddenWord] = useState(getHiddenWord(word))
   const [hiddenKeys, setHiddenKeys] = useState(
-    getHiddenKeys(getHiddenWord(word))
+    getHiddenKeys(getHiddenWord(word)),
   );
   const [hiddenIndexes, setHiddenIndexes] = useState(
-    CalculateHiddenIndexs(getHiddenWord(word))
+    CalculateHiddenIndexs(getHiddenWord(word)),
   );
   const correctWord = word.split("");
   const keyBoard = "abcdefghi jklmnopqr stuvwxyz";
   const [hiddenLetters, setHiddenLetters] = useState(
-    getHiddenWord(word).split("")
+    getHiddenWord(word).split(""),
   );
   const [selectedBox, setSelectedBox] = useState(
-    Number(CalculateHiddenIndexs(getHiddenWord(word))[0])
+    Number(CalculateHiddenIndexs(getHiddenWord(word))[0]),
   );
   const [clickedKey, setClickedKey] = useState("");
   const [health, setHealth] = useState(8);
@@ -87,7 +87,7 @@ const Game: React.FC<GameProps> = ({ category, selectedCategory }) => {
     });
     return hiddenIndexes;
   }
-  console.log(hiddenKeys)
+  console.log(hiddenKeys);
 
   useLayoutEffect(() => {
     playGame();
@@ -144,10 +144,14 @@ const Game: React.FC<GameProps> = ({ category, selectedCategory }) => {
         return updatedHiddenLetters;
       });
       const updatedHiddenIndexes = hiddenIndexes.filter(
-        (e) => e !== selectedBox
+        (e) => e !== selectedBox,
       );
-      const num = hiddenIndexes.filter((e) => e !== selectedBox && correctWord[e] === clickedKey)
-      num.length > 0 ? setHiddenKeys(hiddenKeys) : setHiddenKeys(hiddenKeys + clickedKey)
+      const num = hiddenIndexes.filter(
+        (e) => e !== selectedBox && correctWord[e] === clickedKey,
+      );
+      num.length > 0
+        ? setHiddenKeys(hiddenKeys)
+        : setHiddenKeys(hiddenKeys + clickedKey);
       setHiddenIndexes(updatedHiddenIndexes);
       setClickedKey("");
       if (updatedHiddenIndexes.length) {
@@ -167,16 +171,16 @@ const Game: React.FC<GameProps> = ({ category, selectedCategory }) => {
       setHealth(health - 1);
       setClickedKey("");
       setIsRed(true);
-        setTimeout(() => {
-          setIsRed(false);
-        }, 1000);
+      setTimeout(() => {
+        setIsRed(false);
+      }, 1000);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [clickedKey]);
 
   const updateSelectedBoxPosition = (
     currPos: number,
-    posArr: Array<number>
+    posArr: Array<number>,
   ): void => {
     let posInArr = posArr.indexOf(currPos);
     if (posInArr < posArr.length - 1) {
@@ -215,16 +219,16 @@ const Game: React.FC<GameProps> = ({ category, selectedCategory }) => {
                 width: `${(100 * health) / 8}%`,
                 backgroundColor: isRed ? "red" : "",
                 transition: "background-color 1s ease",
-                opacity: isRed ? '1': `${1 * 2 * health/8}`,
+                opacity: isRed ? "1" : `${(1 * 2 * health) / 8}`,
               }}
               className={`bg-dark-navy h-full rounded-full`}
             />
           </div>
           <Image
-          style={{
-            scale: isRed ? '.9' : '1',
-            transition: "scale 1s ease",
-          }}
+            style={{
+              scale: isRed ? ".9" : "1",
+              transition: "scale 1s ease",
+            }}
             className="h-6 sm:h-12 w-[26px] sm:w-14"
             src={Heart}
             alt="heart"

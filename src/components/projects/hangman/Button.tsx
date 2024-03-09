@@ -7,7 +7,12 @@ interface ButtonProps {
   autoFocus?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({ onClick, children, color, autoFocus }) => {
+const Button: React.FC<ButtonProps> = ({
+  onClick,
+  children,
+  color,
+  autoFocus,
+}) => {
   const style = {
     background:
       color === "blue"
@@ -28,7 +33,7 @@ const Button: React.FC<ButtonProps> = ({ onClick, children, color, autoFocus }) 
           borderRadius: "40px",
           padding: "0 2px 5px 2px",
         }}
-        >
+      >
         <div className="relative overflow-auto rounded-[40px]">
           <button
             className="uppercase hover-effect"
