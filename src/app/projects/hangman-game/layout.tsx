@@ -14,7 +14,5 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <div className={mouse_memoirs.className}>{children}</div>
-  );
+  return <div className={mouse_memoirs.className}>{children}</div>;
 }

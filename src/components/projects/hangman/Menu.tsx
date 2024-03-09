@@ -20,7 +20,7 @@ const Menu: React.FC<MenuProps> = (props) => {
     debugger;
     if (
       [GameState.Won, GameState.Lost].includes(
-        props.gameStatusText as GameState
+        props.gameStatusText as GameState,
       )
     ) {
       props.playAgain();

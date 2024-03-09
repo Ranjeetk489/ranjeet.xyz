@@ -53,10 +53,10 @@ const page = async () => {
     `${protocal}://${host}/projects/product-feedback/api`,
     {
       cache: "no-store",
-    }
+    },
   );
   const data: Data = await response.json();
-//   console.log(data);
+  //   console.log(data);
 
   return (
     <div className="">
@@ -73,7 +73,7 @@ const page = async () => {
           </div>
         </div>
         <section className="bg-[#F7F8FD] py-8 px-6 flex flex-col gap-4">
-          <Feedback productRequests={data.productRequests}/>
+          <Feedback productRequests={data.productRequests} />
         </section>
       </main>
     </div>
