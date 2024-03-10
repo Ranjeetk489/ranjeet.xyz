@@ -11,7 +11,8 @@ const Button: React.FC<ButtonProps> = ({ text, color }) => {
       style={{
         background:
           color === "purple" ? "#AD1FEA" :
-           color === "blue" ? "#4661E6" : "",
+           color === "blue" ? "#4661E6" : 
+           color === 'navy' ? "#3A4374" : 'D73737'
       }}
       className="py-[10px] px-4 rounded-[10px] font-bold text-[#F2F4FE] cursor-pointer"
     >

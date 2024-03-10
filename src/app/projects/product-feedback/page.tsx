@@ -7,6 +7,7 @@ import Feedback from "./components/Feedback";
 import Button from "./components/Button";
 import Image from "next/image";
 import Guy from '../../../../public/assets/productAssets/shared/icon-guy.svg'
+import Link from "next/link";
 
 export interface Data {
   currentUser: {
@@ -76,7 +77,8 @@ const page = async () => {
             <h5>Sort by: </h5>
             <Select />
           </div>
-          <Button text="+ Add Feedback" color="purple" />
+          <Link href={`${process.env.NEXT_PUBLIC_BASE_API_URL}/projects/product-feedback/feedback/addFeedback`}>
+          <Button text="+ Add Feedback" color="purple" /></Link>
         </div>
         <section className="bg-[#F7F8FD] py-8 px-6 flex flex-col gap-4">
         {data.productRequests &&
