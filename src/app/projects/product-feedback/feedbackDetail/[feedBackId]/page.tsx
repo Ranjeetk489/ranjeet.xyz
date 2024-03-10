@@ -16,7 +16,10 @@ const page = async ({ params }: { params: { feedBackId: number } }) => {
   return (
     <div className="bg-[#F7F8FD] px-6 py-8 flex flex-col gap-6">
       <div className="flex justify-between items-center">
-        <Link href={`${process.env.NEXT_PUBLIC_BASE_API_URL}/projects/product-feedback`} className="flex gap-4 items-center">
+        <Link
+          href={`${process.env.NEXT_PUBLIC_BASE_API_URL}/projects/product-feedback`}
+          className="flex gap-4 items-center"
+        >
           <Image src={LeftArrow} alt="<" />
           <h5 className="text-[13px] font-bold text-[#647196]">Go Back</h5>
         </Link>
@@ -27,7 +30,12 @@ const page = async ({ params }: { params: { feedBackId: number } }) => {
       {comments && (
         <div className="bg-white text-[13px] rounded-[10px] p-6 flex flex-col ">
           <h2 className="text-lg font-bold text-[#3A4374]">
-            {comments.reduce((total, comment) => total + (comment.replies ? comment.replies.length : 0) + 1, 0)} Comment{comments.length === 1 ? "" : "s"}{" "}
+            {comments.reduce(
+              (total, comment) =>
+                total + (comment.replies ? comment.replies.length : 0) + 1,
+              0,
+            )}{" "}
+            Comment{comments.length === 1 ? "" : "s"}{" "}
           </h2>
           {comments.map((comment, index: number) => (
             <div

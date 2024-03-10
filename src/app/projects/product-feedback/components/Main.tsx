@@ -18,7 +18,9 @@ const Main: React.FC<MainProps> = ({ productRequests }) => {
 
   return (
     <div>
-      <div className={`h-[72px] w-[100vw] text-white py-4 px-6 flex justify-between items-center bg-gradient-to-bl from-[#E84D70] via-[#A337F6] to-[#28A7ED] ${isOpen ? 'fixed' : 'relative'}`}>
+      <div
+        className={`h-[72px] w-[100vw] text-white py-4 px-6 flex justify-between items-center bg-gradient-to-bl from-[#E84D70] via-[#A337F6] to-[#28A7ED] ${isOpen ? "fixed" : "relative"}`}
+      >
         <div>
           <h1 className="text-base font-bold">Frontend Mentor</h1>
           <h2 className="text-xs opacity-75">Feedback Board</h2>
@@ -35,7 +37,7 @@ const Main: React.FC<MainProps> = ({ productRequests }) => {
 
       {isOpen && (
         <div>
-        <div className="bg-black fixed top-[72px] left-0 opacity-50 z-30 w-screen h-screen" />
+          <div className="bg-black fixed top-[72px] left-0 opacity-50 z-30 w-screen h-screen" />
           <aside className="fixed flex flex-col gap-6 top-[72px] right-0 h-full p-6 bg-[#F7F8FD] w-[270px] z-50">
             <div className="bg-white p-6 w-full gap-x-2 gap-y-[14px] rounded-[10px] flex flex-wrap">
               {CategoryNames.map((request, index) => (

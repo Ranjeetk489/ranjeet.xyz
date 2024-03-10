@@ -13,7 +13,7 @@ const Select = () => {
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedCategory(e.target.value);
   };
-  
+
   return (
     <select
       className="cursor-pointer bg-transparent font-bold"

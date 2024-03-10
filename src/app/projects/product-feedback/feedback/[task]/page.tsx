@@ -21,7 +21,7 @@ const page = ({ params }: { params: { task: string } }) => {
       </Link>
       <div className="bg-white text-[13px] rounded-[10px] p-6 my-14 flex flex-col gap-6">
         <Image
-            className="-mt-11"
+          className="-mt-11"
           width={40}
           height={40}
           src={newOrEdit ? AddFeedback : EditFeedback}
@@ -62,20 +62,12 @@ const page = ({ params }: { params: { task: string } }) => {
           />
         </div>
         <div className="mt-4 flex flex-col gap-4 text-center">
-        <Button
-          text={newOrEdit ? "Add Feedback" : "Save Changes"}
-          color="purple"
-        />
-        <Button
-          text='Cancel'
-          color="navy"
-        />
-        {!newOrEdit && (
-            <Button
-            text='Delete'
-            color="red"
+          <Button
+            text={newOrEdit ? "Add Feedback" : "Save Changes"}
+            color="purple"
           />
-        ) }
+          <Button text="Cancel" color="navy" />
+          {!newOrEdit && <Button text="Delete" color="red" />}
         </div>
       </div>
     </div>

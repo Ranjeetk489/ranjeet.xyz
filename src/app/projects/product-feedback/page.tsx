@@ -6,7 +6,7 @@ import Select from "./components/Select";
 import Feedback from "./components/Feedback";
 import Button from "./components/Button";
 import Image from "next/image";
-import Guy from '../../../../public/assets/productAssets/shared/icon-guy.svg'
+import Guy from "../../../../public/assets/productAssets/shared/icon-guy.svg";
 import Link from "next/link";
 import { createClient } from "@/utils/supabase/server";
 
@@ -66,9 +66,8 @@ export async function GetData() {
 const page = async () => {
   const data: Data = await GetData();
   const supabase = createClient();
-  const user = await supabase.auth.getUser()
+  const user = await supabase.auth.getUser();
   console.log(user);
-  
 
   return (
     <div className="">
@@ -80,27 +79,30 @@ const page = async () => {
             <h5>Sort by: </h5>
             <Select />
           </div>
-          <Link href={`${process.env.NEXT_PUBLIC_BASE_API_URL}/projects/product-feedback/feedback/addFeedback`}>
-          <Button text="+ Add Feedback" color="purple" /></Link>
+          <Link
+            href={`${process.env.NEXT_PUBLIC_BASE_API_URL}/projects/product-feedback/feedback/addFeedback`}
+          >
+            <Button text="+ Add Feedback" color="purple" />
+          </Link>
         </div>
         <section className="bg-[#F7F8FD] py-8 px-6 flex flex-col gap-4">
-        {data.productRequests &&
-        data.productRequests.map((req, i) => (
-          <Feedback key={i} productRequest={req} />
-        ))}
-      {data.productRequests.length === 0 && (
-        <div className="bg-white flex flex-col items-center rounded-[10px] py-[76px] px-6">
-          <Image width={102} height={108} src={Guy} alt="Guy" />
-          <h2 className="text-[18px] mt-10 mb-4 font-bold text-[#3A4374]">
-            There is no feedback yet.
-          </h2>
-          <p className="text-[13px] mb-6 text-[#647196] text-center">
-            Got a suggestion? Found a bug that needs to be squashed? We love
-            hearing about new ideas to improve our app.
-          </p>
-          <Button text="+ Add Feedback" color="purple" />
-        </div>
-      )}
+          {data.productRequests &&
+            data.productRequests.map((req, i) => (
+              <Feedback key={i} productRequest={req} />
+            ))}
+          {data.productRequests.length === 0 && (
+            <div className="bg-white flex flex-col items-center rounded-[10px] py-[76px] px-6">
+              <Image width={102} height={108} src={Guy} alt="Guy" />
+              <h2 className="text-[18px] mt-10 mb-4 font-bold text-[#3A4374]">
+                There is no feedback yet.
+              </h2>
+              <p className="text-[13px] mb-6 text-[#647196] text-center">
+                Got a suggestion? Found a bug that needs to be squashed? We love
+                hearing about new ideas to improve our app.
+              </p>
+              <Button text="+ Add Feedback" color="purple" />
+            </div>
+          )}
         </section>
       </main>
     </div>

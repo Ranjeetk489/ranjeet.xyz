@@ -32,7 +32,9 @@ const CommentContent: React.FC<CommentProps> = ({ comment }) => {
         <h3 className="text-[#4661E6] font-semibold">Reply</h3>
       </div>
       <p>
-        <span className="text-[#AD1FEA] font-bold">{comment.replyingTo ? `@${comment.replyingTo}` : ''}</span>{" "}
+        <span className="text-[#AD1FEA] font-bold">
+          {comment.replyingTo ? `@${comment.replyingTo}` : ""}
+        </span>{" "}
         {comment.content}
       </p>
     </>
