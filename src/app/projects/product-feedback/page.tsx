@@ -8,6 +8,7 @@ import Button from "./components/Button";
 import Image from "next/image";
 import Guy from '../../../../public/assets/productAssets/shared/icon-guy.svg'
 import Link from "next/link";
+import { createClient } from "@/utils/supabase/server";
 
 export interface Data {
   currentUser: {
@@ -64,8 +65,10 @@ export async function GetData() {
 
 const page = async () => {
   const data: Data = await GetData();
-
-    // console.log(data);
+  const supabase = createClient();
+  const user = await supabase.auth.getUser()
+  console.log(user);
+  
 
   return (
     <div className="">

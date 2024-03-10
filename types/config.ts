@@ -63,4 +63,8 @@ export interface ConfigProps {
     loginUrl: string;
     callbackUrl: string;
   };
+  supabase: {
+    url: string;
+    key: string;
+  };
 }
