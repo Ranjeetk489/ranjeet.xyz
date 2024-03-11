@@ -3,13 +3,13 @@ import React from "react";
 import LeftArrow from "../../../../../../public/assets/productAssets/shared/icon-arrow-left.svg";
 import Button from "../../components/Button";
 import Feedback from "../../components/Feedback";
-import { Comment, Data, GetData } from "../../page";
+import { Comment, GetData } from "../../page";
 import CommentContent from "../../components/CommentContent";
 import AddComment from "../../components/AddComment";
 import Link from "next/link";
 
 const page = async ({ params }: { params: { feedBackId: number } }) => {
-  const data: Data = await GetData();
+  const data = await GetData();
   const comments: Comment[] =
     data.productRequests[params.feedBackId - 1].comments;
 
@@ -23,7 +23,11 @@ const page = async ({ params }: { params: { feedBackId: number } }) => {
           <Image src={LeftArrow} alt="<" />
           <h5 className="text-[13px] font-bold text-[#647196]">Go Back</h5>
         </Link>
-        <Button text="Edit Feedback" color="blue" />
+        <Link
+          href={`${process.env.NEXT_PUBLIC_BASE_API_URL}/projects/product-feedback/feedback/${params.feedBackId}`}
+        >
+          <Button text="Edit Feedback" color="blue" />
+        </Link>
       </div>
       <Feedback productRequest={data.productRequests[params.feedBackId - 1]} />
 
@@ -33,7 +37,7 @@ const page = async ({ params }: { params: { feedBackId: number } }) => {
             {comments.reduce(
               (total, comment) =>
                 total + (comment.replies ? comment.replies.length : 0) + 1,
-              0,
+              0
             )}{" "}
             Comment{comments.length === 1 ? "" : "s"}{" "}
           </h2>
