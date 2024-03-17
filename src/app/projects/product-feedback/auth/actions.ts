@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 
 import { createClient } from "@/utils/supabase/server";
 import config from "../../../../../config";
+import toast from "react-hot-toast";
 
 export async function login(formData: FormData) {
   const supabase = createClient();
@@ -19,7 +20,7 @@ export async function login(formData: FormData) {
   const { error } = await supabase.auth.signInWithPassword(data);
   console.log(error);
   if (error) {
-    redirect("/error");
+    // redirect("/error");
   }
 
   revalidatePath("/", "layout");
@@ -36,10 +37,12 @@ export async function signup(formData: FormData) {
     password: formData.get("password") as string,
   };
 
-  const { error } = await supabase.auth.signUp(data);
-  console.log(error);
+  const { data: newData, error } = await supabase.auth.signUp(data);
+  // console.log(error, newData, "test");
   if (error) {
-    redirect("/error");
+    // redirect("/error");
+    console.log(error, "error");
+    // toast.error(error.message);
   }
 
   revalidatePath("/", "layout");
