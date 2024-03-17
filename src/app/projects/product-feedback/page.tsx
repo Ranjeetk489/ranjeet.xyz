@@ -2,11 +2,6 @@ import React from "react";
 import "./style.css";
 import { headers } from "next/headers";
 import Main from "./components/Main";
-import Select from "./components/Select";
-import Feedback from "./components/Feedback";
-import Button from "./components/Button";
-import Image from "next/image";
-import Link from "next/link";
 import { createClient } from "@/utils/supabase/server";
 
 export interface Data {
@@ -69,9 +64,7 @@ const page = async () => {
   console.log(user);
 
   return (
-    <div className="">
       <Main productRequests={data.productRequests} />
-    </div>
   );
 };
 

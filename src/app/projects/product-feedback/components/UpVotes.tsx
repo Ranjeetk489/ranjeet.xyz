@@ -10,7 +10,7 @@ interface ButtonProps {
 const UpVotes: React.FC<ButtonProps> = ({ votes, selected }) => {
   return (
     <div
-      className={`pl-4 pr-3 py-[6px] text-[13px] font-bold rounded-[10px] cursor-pointer bg-[#F2F4FF] text-[#3A4374]"} hover:bg-[#CFD7FF] flex justify-center items-center gap-2 font-bold active:bg-[#4661E6] active:text-white`}
+      className={`pl-4 pr-3 py-[6px] md:px-2 md:pb-2 md:pt-[14px] text-[13px] font-bold rounded-[10px] cursor-pointer bg-[#F2F4FF] text-[#3A4374]"} hover:bg-[#CFD7FF] flex md:flex-col justify-center self-start items-center text-[#3A4374] gap-2 font-bold active:bg-[#4661E6] active:text-white`}
     >
       <Image
         style={{

@@ -12,7 +12,7 @@ const page = async ({ params }: { params: { task: string } }) => {
   return (
     <div className="bg-[#F7F8FD] px-6 py-8">
       <Link
-        href={`${process.env.NEXT_PUBLIC_BASE_API_URL}/projects/product-feedback${newFeedback ? '' : '/feedbackDetail/' + params.task}`}
+        href={`/projects/product-feedback${newFeedback ? '' : '/feedbackDetail/' + params.task}`}
         className="flex gap-4 items-center"
       >
         <Image src={LeftArrow} alt="<" />
