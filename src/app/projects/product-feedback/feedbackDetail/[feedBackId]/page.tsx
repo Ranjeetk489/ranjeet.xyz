@@ -17,14 +17,14 @@ const page = async ({ params }: { params: { feedBackId: number } }) => {
     <div className="bg-[#F7F8FD] px-6 py-8 flex flex-col gap-6">
       <div className="flex justify-between items-center">
         <Link
-          href={`${process.env.NEXT_PUBLIC_BASE_API_URL}/projects/product-feedback`}
+          href={`/projects/product-feedback`}
           className="flex gap-4 items-center"
         >
           <Image src={LeftArrow} alt="<" />
           <h5 className="text-[13px] font-bold text-[#647196]">Go Back</h5>
         </Link>
         <Link
-          href={`${process.env.NEXT_PUBLIC_BASE_API_URL}/projects/product-feedback/feedback/${params.feedBackId}`}
+          href={`/projects/product-feedback/feedback/${params.feedBackId}`}
         >
           <Button text="Edit Feedback" color="blue" />
         </Link>
