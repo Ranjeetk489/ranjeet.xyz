@@ -37,7 +37,7 @@ const page = async ({ params }: { params: { feedBackId: number } }) => {
             {comments.reduce(
               (total, comment) =>
                 total + (comment.replies ? comment.replies.length : 0) + 1,
-              0
+              0,
             )}{" "}
             Comment{comments.length === 1 ? "" : "s"}{" "}
           </h2>

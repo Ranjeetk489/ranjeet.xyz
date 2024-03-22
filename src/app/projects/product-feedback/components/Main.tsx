@@ -108,7 +108,8 @@ const Main: React.FC<MainProps> = ({ productRequests }) => {
           {productRequests &&
             productRequests
               .filter(
-                (request) => request.category === selected || selected === "all"
+                (request) =>
+                  request.category === selected || selected === "all",
               )
               .sort((a, b) => {
                 const aCommentsLength = a.comments ? a.comments.length : 0;
@@ -126,7 +127,7 @@ const Main: React.FC<MainProps> = ({ productRequests }) => {
               })
               .map((req, i) => <Feedback key={i} productRequest={req} />)}
           {productRequests.filter(
-            (request) => request.category === selected || selected === "all"
+            (request) => request.category === selected || selected === "all",
           ).length === 0 && (
             <div className="bg-white flex flex-col items-center rounded-[10px] py-[76px] px-6">
               <Image width={102} height={108} src={Guy} alt="Guy" />

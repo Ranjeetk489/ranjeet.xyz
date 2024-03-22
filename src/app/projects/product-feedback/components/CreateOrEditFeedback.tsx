@@ -14,15 +14,19 @@ const CreateOrEditFeedback = ({
   create: boolean;
   feedback: ProductRequest;
 }) => {
-  const [selectedCategory, setSelectedCategory] = useState(feedback?.category || "feature");
-//   const [selectedFeedback, setSelectedFeedback] = useState({
-//     category: feedback.category,
-//     description: feedback.description,
-//     status: feedback.status,
-//     title: feedback.title,
-//   });
-  const [ selectedStatus, setSelectedStatus ] = useState(feedback?.status || 'planned')
-  console.log(feedback)
+  const [selectedCategory, setSelectedCategory] = useState(
+    feedback?.category || "feature",
+  );
+  //   const [selectedFeedback, setSelectedFeedback] = useState({
+  //     category: feedback.category,
+  //     description: feedback.description,
+  //     status: feedback.status,
+  //     title: feedback.title,
+  //   });
+  const [selectedStatus, setSelectedStatus] = useState(
+    feedback?.status || "planned",
+  );
+  console.log(feedback);
 
   return (
     <div className="bg-white text-[13px] rounded-[10px] p-6 my-14 flex flex-col gap-6 text-[#3A4374]">
